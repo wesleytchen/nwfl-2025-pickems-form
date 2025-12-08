@@ -28,14 +28,18 @@ h1 {
     letter-spacing: 1px;
 }
 
+
 .bracket-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Adjusted for better spacing */
     align-items: center;
     margin-bottom: 2rem;
     padding: 1rem;
     border-bottom: 1px solid #eee;
-    flex-wrap: wrap;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    height: 350px;
+    width: 800px; /* Force a minimum width to ensure layout integrity */
 }
 
 .round {
@@ -58,10 +62,24 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 2px;
     background-color: #f9f9f9;
-    width: 120px;
-    text-align: center;
+    width: 150px; /* Increased width to accommodate icon */
+    text-align: left;
     font-size: 0.9rem;
     transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.team-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.team-name {
+    flex-grow: 1;
 }
 
 .team.winner {
@@ -166,6 +184,9 @@ h1 {
     margin-bottom: 0.25rem;
     font-size: 0.9rem;
     color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .tiebreaker-inputs input {
