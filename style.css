@@ -1,0 +1,194 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #fdfdfd;
+    color: #222;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.bracket-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+.round {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.matchup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 0.5rem;
+}
+
+.team {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    background-color: #f9f9f9;
+    width: 120px;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.team.winner {
+    font-weight: bold;
+    border-color: #8FBC8F;
+    background-color: #f0fff0;
+}
+
+.team.champion {
+    background-color: #FAFAD2;
+    border-color: #EEE8AA;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#pickems-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-round {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 1.5rem;
+}
+
+.form-round h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #555;
+    font-weight: normal;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.form-matchup {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+}
+
+.form-matchup:hover {
+    background-color: #fcfcfc;
+    border-left: 3px solid #e0e0e0;
+}
+
+.form-matchup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    color: #444;
+}
+
+.form-matchup select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+
+.form-matchup select:focus {
+    outline: none;
+    border-color: #888;
+    box-shadow: 0 0 0 2px rgba(136, 136, 136, 0.2);
+}
+
+.tiebreaker {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 1.5rem;
+}
+
+.tiebreaker h3 {
+    margin-top: 0;
+    font-weight: normal;
+}
+
+.tiebreaker-inputs {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.tiebreaker-inputs div {
+    display: flex;
+    flex-direction: column;
+}
+
+.tiebreaker-inputs label {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.tiebreaker-inputs input {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 2px;
+    font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    align-self: center;
+    letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
