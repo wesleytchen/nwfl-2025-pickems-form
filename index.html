@@ -5,35 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NWFL 2025 Pick'ems</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta property="og:title" content="NWFL Pick'ems" />
+    <meta property="og:image" content="cover.webp" />
 </head>
 <body>
     <div class="container">
-        <h1>NWFL 2025 Pick'ems</h1>
+        <h1>The National Waslo Football League 2025 Pick'ems</h1>
         <div class="bracket-wrapper">
             <div class="bracket-container">
             <!-- Bracket will be rendered here by JavaScript -->
         </div>
         </div>
         
-        <form id="pickems-form">
+        <form id="pickems-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScS-4mKfyvFIIJqXyGHqJimu-Ku0ejHspR8kJX4x_mwaA-Akw/formResponse" method="POST" target="hidden_iframe">
             <!-- Form sections will be rendered here by JavaScript -->
-            <div class="tiebreaker">
-                <h3>Tiebreaker</h3>
-                <p>Predict the final score of the championship game.</p>
-                <div class="tiebreaker-inputs">
-                    <div>
-                        <label for="team1-score" id="tiebreaker-team1-label">Team A</label>
-                        <input type="number" id="team1-score" name="tiebreaker_team1_score" min="0">
-                    </div>
-                    <div>
-                        <label for="team2-score" id="tiebreaker-team2-label">Team B</label>
-                        <input type="number" id="team2-score" name="tiebreaker_team2_score" min="0">
-                    </div>
-                </div>
-            </div>
-            <button type="submit">Submit Picks</button>
         </form>
     </div>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="Form Submission Target"></iframe>
     <script src="script.js"></script>
 </body>
 </html>

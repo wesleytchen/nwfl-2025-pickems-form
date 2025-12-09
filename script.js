@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const teams = [
-        { seed: 1, name: 'Gatekeepers', icon: 'https://via.placeholder.com/32/0000FF/FFFFFF?text=G' },
-        { seed: 2, name: 'Steamers', icon: 'https://via.placeholder.com/32/FF0000/FFFFFF?text=S' },
-        { seed: 3, name: 'Gulls', icon: 'https://via.placeholder.com/32/008000/FFFFFF?text=G' },
-        { seed: 4, name: 'Sockeyes', icon: 'https://via.placeholder.com/32/FFFF00/000000?text=S' },
-        { seed: 5, name: 'Founders', icon: 'https://via.placeholder.com/32/FFA500/FFFFFF?text=F' },
-        { seed: 6, name: 'Windjammers', icon: 'https://via.placeholder.com/32/800080/FFFFFF?text=W' },
+        { seed: 1, name: 'The Metaverse', icon: 'assets/logan.jpg' },
+        { seed: 2, name: 'Tortoise Formation', icon: 'assets/max.jpg' },
+        { seed: 3, name: 'Jones March', icon: 'assets/wesley.png' },
+        { seed: 4, name: 'Parrot Heads', icon: 'assets/harrison.svg' },
+        { seed: 5, name: 'The Winning Team', icon: 'assets/james.svg' },
+        { seed: 6, name: 'CertainToExcel', icon: 'assets/theo.jpg' },
     ];
 
     const bracketContainer = document.querySelector('.bracket-container');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function getTeamBySeed(seed) {
-        if (!seed) return { name: 'TBD', icon: 'https://via.placeholder.com/32/EEEEEE/AAAAAA?text=?' };
+        if (!seed) return { name: 'TBD', icon: 'assets/placeholder.png' };
         return teams.find(t => t.seed === seed);
     }
 
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const champion = getTeamBySeed(picks.championship.match1);
 
         bracketContainer.innerHTML = `
+        <div class="bracket-scroller">
             <div class="round quarterfinals">
                 <div class="matchup">
                     ${renderTeam(qf1_t1, picks.quarterfinals.match1)}
@@ -100,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             </div>
+        </div>
         `;
     }
 
@@ -109,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Always render Quarterfinals
         formContent += `
             <div class="form-round">
-                <h3>Quarterfinals</h3>
+                <h3>Quarterfinals (10 points)</h3>
                 <div class="form-matchup">
                     <label>Matchup: ${getTeamBySeed(4).name} (4) vs ${getTeamBySeed(5).name} (5)</label>
                     <select name="qf_match1" data-round="quarterfinals" data-match="match1">
@@ -135,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const qf2_winner = getTeamBySeed(picks.quarterfinals.match2);
             formContent += `
                 <div class="form-round">
-                    <h3>Semifinals</h3>
+                    <h3>Semifinals (20 points)</h3>
                     <div class="form-matchup">
                         <label>Matchup: ${getTeamBySeed(1).name} (1) vs ${qf1_winner.name}</label>
                         <select name="sf_match1" data-round="semifinals" data-match="match1">
@@ -162,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const sf2_winner = getTeamBySeed(picks.semifinals.match2);
             formContent += `
                 <div class="form-round">
-                    <h3>Championship</h3>
+                    <h3>Championship (40 points)</h3>
                     <div class="form-matchup">
                         <label>Matchup: ${sf1_winner.name} vs ${sf2_winner.name}</label>
                         <select name="champ_match1" data-round="championship" data-match="match1">
@@ -182,30 +184,68 @@ document.addEventListener('DOMContentLoaded', () => {
             const champ_t1 = getTeamBySeed(picks.semifinals.match1);
             const champ_t2 = getTeamBySeed(picks.semifinals.match2);
             
-            const tiebreakerHTML = `
-                <div class="tiebreaker">
-                    <h3>Tiebreaker</h3>
-                    <p>Predict the final score of the championship game.</p>
-                    <div class="tiebreaker-inputs">
-                        <div>
-                            <label id="tiebreaker-team1-label" for="team1-score">
-                                <img src="${champ_t1.icon}" class="team-icon"> ${champ_t1.name}
-                            </label>
-                            <input type="number" id="team1-score" name="tiebreaker_team1_score" min="0">
-                        </div>
-                        <div>
-                            <label id="tiebreaker-team2-label" for="team2-score">
-                                <img src="${champ_t2.icon}" class="team-icon"> ${champ_t2.name}
-                            </label>
-                            <input type="number" id="team2-score" name="tiebreaker_team2_score" min="0">
+            const finalFieldsHTML = `
+                <input type="hidden" id="picks-input" name="entry.1975301766">
+                <div class="tiebreaker form-round">
+                    <h3>Tiebreaker (5 points)</h3>
+                    <div class="form-matchup">
+                        <p>Predict the final score of the championship game.</p>
+                        <div class="tiebreaker-inputs">
+                            <div>
+                                <label id="tiebreaker-team1-label" for="team1-score">
+                                    <img src="${champ_t1.icon}" class="team-icon"> ${champ_t1.name}
+                                </label>
+                                <input type="number" id="team1-score" name="entry.1795236611" min="0">
+                            </div>
+                            <div>
+                                <label id="tiebreaker-team2-label" for="team2-score">
+                                    <img src="${champ_t2.icon}" class="team-icon"> ${champ_t2.name}
+                                </label>
+                                <input type="number" id="team2-score" name="entry.391285686" min="0">
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
-                <button type="submit">Submit Picks</button>
+                <div class="form-round">
+                    <h3>Bonus prediction (I'll assign a point value based on your prediction's boldness)</h3>
+                    <div class="form-matchup">
+                        <label for="pred">Make a bold prediction</label>
+                        <input type="text" id="pred" name="entry.1685099477" required>
+                    </div>
+                </div>
+                <div class="form-round">
+                    <h3>Your Name</h3>
+                    <div class="form-matchup">
+                        <label for="userName">Name</label>
+                        <input type="text" id="userName" name="entry.1479266286" required>
+                    </div>
+                </div>
+                <button type="submit" disabled>Submit Picks</button>
             `;
-            form.insertAdjacentHTML('beforeend', tiebreakerHTML);
+            form.insertAdjacentHTML('beforeend', finalFieldsHTML);
         }
     }
+
+    function checkFormCompleteness() {
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (!submitButton) return;
+
+        const pred = form.querySelector('#pred');
+        const userName = form.querySelector('#userName');
+        const team1Score = form.querySelector('#team1-score');
+        const team2Score = form.querySelector('#team2-score');
+
+        if (picks.championship.match1 && pred.value && userName.value && team1Score.value && team2Score.value) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
+
+    form.addEventListener('input', () => {
+        checkFormCompleteness();
+    });
 
     form.addEventListener('change', (e) => {
         if (e.target.tagName === 'SELECT') {
@@ -231,24 +271,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             render();
+            checkFormCompleteness();
+
+            const picksInput = document.getElementById('picks-input');
+            if (picksInput) {
+                picksInput.value = JSON.stringify(picks);
+            }
         }
     });
 
     form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const finalPicks = {
-            ...picks,
-            tiebreaker: {
-                team1_score: document.getElementById('team1-score').value,
-                team2_score: document.getElementById('team2-score').value,
-            }
-        }
-        // This is where you would handle the form submission,
-        // for example, by sending the data to a Google Form.
-        console.log('Form Submitted', finalPicks);
-        alert('Picks submitted! Check the console for the data.');
+        alert('Picks submitted!');
     });
 
     render();
 });
+
 
