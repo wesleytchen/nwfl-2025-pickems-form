@@ -66,6 +66,30 @@ document.addEventListener('DOMContentLoaded', () => {
             tiebreaker: { team1Score: 127, team2Score: 138 },
             bonusPrediction: "Dasha’s team stays the toughest. Bowers breaks the record of most points a TE has ever scored. Herbert gets a botched haircut right before the Super Bowl. James Cook gets silly.",
             bonusPoints: 260
+        },
+        {
+            name: "CTE",
+            score: 0,
+            picks: {
+                quarterfinals: { match1: 5, match2: 6 },
+                semifinals: { match1: 1, match2: 6 },
+                championship: { match1: 6 }
+            },
+            tiebreaker: { team1Score: 110, team2Score: 126 },
+            bonusPrediction: "CompetitionTakesEverything",
+            bonusPoints: "4"
+        },
+        {
+            name: "Logan",
+            score: 0,
+            picks: {
+                quarterfinals: { match1: 5, match2: 6 },
+                semifinals: { match1: 1, match2: 2 },
+                championship: { match1: 1 }
+            },
+            tiebreaker: { team1Score: 200, team2Score: 0 },
+            bonusPrediction: "Logan wins the whole thing by 200 points",
+            bonusPoints: 41
         }
     ];
 
