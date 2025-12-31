@@ -17,35 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update this object as games are played to show the real bracket
     const masterPicks = {
         quarterfinals: {
-            match1: null, // 4 vs 5
-            match2: null, // 3 vs 6
+            match1: 5, // 4 vs 5
+            match2: 3, // 3 vs 6
         },
         semifinals: {
-            match1: null, // 1 vs winner of QF1
-            match2: null, // 2 vs winner of QF2
+            match1: 5, // 1 vs winner of QF1
+            match2: 3, // 2 vs winner of QF2
         },
         championship: {
-            match1: null, // winner of SF1 vs winner of SF2
+            match1: 3, // winner of SF1 vs winner of SF2
         },
     };
 
     // Mock Leaderboard Data
     const leaderboardData = [
         {
-            name: "Maximillian Samengo",
-            score: 0,
-            picks: {
-                quarterfinals: { match1: 5, match2: 6 },
-                semifinals: { match1: 1, match2: 2 },
-                championship: { match1: 2 }
-            },
-            tiebreaker: { team1Score: 137, team2Score: 145 }, // team1 is SF1 winner, team2 is SF2 winner
-            bonusPrediction: "Josh Allen scores less than 10 points in the final",
-            bonusPoints: 5
-        },
-        {
             name: "Wesley",
-            score: 0,
+            score: 80,
             picks: {
                 quarterfinals: { match1: 5, match2: 3 },
                 semifinals: { match1: 1, match2: 3 },
@@ -56,8 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
             bonusPoints: 505
         },
         {
+            name: "Maximillian Samengo",
+            score: 15,
+            picks: {
+                quarterfinals: { match1: 5, match2: 6 },
+                semifinals: { match1: 1, match2: 2 },
+                championship: { match1: 2 }
+            },
+            tiebreaker: { team1Score: 137, team2Score: 145 }, // team1 is SF1 winner, team2 is SF2 winner
+            bonusPrediction: "Josh Allen scores less than 10 points in the final",
+            bonusPoints: 5
+        },
+        {
             name: "Dasha",
-            score: 0,
+            score: 10,
             picks: {
                 quarterfinals: { match1: 5, match2: 6 },
                 semifinals: { match1: 1, match2: 2 },
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: "CTE",
-            score: 0,
+            score: 10,
             picks: {
                 quarterfinals: { match1: 5, match2: 6 },
                 semifinals: { match1: 1, match2: 6 },
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: "Logan",
-            score: 0,
+            score: 10,
             picks: {
                 quarterfinals: { match1: 5, match2: 6 },
                 semifinals: { match1: 1, match2: 2 },
